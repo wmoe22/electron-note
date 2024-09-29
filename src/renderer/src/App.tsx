@@ -1,7 +1,7 @@
-import { Button, Input } from 'antd'
+import { Button } from 'antd'
 import { useAtomValue, useSetAtom } from 'jotai'
 import { useRef, useState } from 'react'
-import { AiFillDelete, AiFillFileAdd } from 'react-icons/ai'
+import { AiFillDelete, AiFillFileAdd, AiFillMoon, AiFillPushpin, AiFillSun } from 'react-icons/ai'
 import Content from './components/Content'
 import FloatingNoteTitle from './components/FloatingNoteTitle'
 import MarkDownEditor from './components/MarkDownEditor'
@@ -16,7 +16,6 @@ function App() {
   const createEmptyNote = useSetAtom(createEmptyNoteAtom)
   const deleteNote = useSetAtom(deleteNoteAtom)
   const notes = useAtomValue(notesAtom)
-  const { Search } = Input
 
   console.log(notes, 'notes')
 
@@ -36,11 +35,17 @@ function App() {
       <RootLayout>
         <Sidebar className="p-2">
           <section className="flex justify-between items-center">
-            <Button onClick={handleCreate} color="primary" variant="solid">
+            <Button onClick={handleCreate} color="primary" variant="filled">
               <AiFillFileAdd />
             </Button>
-
-            <Button onClick={handleDelete} color="danger" variant="solid">
+            <Button color="primary" variant="filled">
+              <AiFillPushpin />
+            </Button>
+            <Button color="primary" variant="filled">
+              <AiFillSun />
+              <AiFillMoon />
+            </Button>
+            <Button onClick={handleDelete} color="danger" variant="filled">
               <AiFillDelete />
             </Button>
           </section>

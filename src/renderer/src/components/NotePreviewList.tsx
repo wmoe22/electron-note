@@ -1,6 +1,6 @@
 import { useNotesList } from '@renderer/hooks/useNotesList'
 import { cn } from '@renderer/utils'
-import { GetProps, Input } from 'antd'
+import { Input } from 'antd'
 import React, { ComponentProps, useState } from 'react'
 import NotePreview from './NotePreview'
 
@@ -12,8 +12,6 @@ const NotePreviewList = ({ className, onSelect, ...props }: NotePreviewListProps
   const { notes, selectedNoteIndex, handleNoteSelect } = useNotesList({ onSelect })
   const [searchQuery, setSearchQuery] = useState('')
 
-  type SearchProps = GetProps<typeof Input.Search>
-
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchQuery(e.target.value)
   }
@@ -24,16 +22,10 @@ const NotePreviewList = ({ className, onSelect, ...props }: NotePreviewListProps
 
   if (!filteredNotes) return null
 
-  const { Search } = Input
-
+  /* TODO:Dark mode and pinned */
   return (
     <ul className={className} {...props}>
-      <Search
-        placeholder="input search text"
-        size="large"
-        value={searchQuery}
-        onChange={onChange}
-      />
+      <Input placeholder="input search text" size="large" value={searchQuery} onChange={onChange} />
       {filteredNotes.length > 0 ? (
         filteredNotes.map((n, index) => (
           <NotePreview

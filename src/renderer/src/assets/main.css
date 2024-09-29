@@ -9,7 +9,7 @@
 
   html,
   body {
-    @apply w-full select-none font-mono bg-gray-950  backdrop-blur-lg antialiased overflow-hidden;
+    @apply w-full select-none font-mono bg-[#1e1e1e]  backdrop-blur-lg antialiased overflow-hidden;
   }
 
   button {

@@ -8,7 +8,7 @@ import { createNote, deleteNote, getNotes, readNote, writeNote } from './lib'
 function createWindow(): void {
   // Create the browser window.
   const mainWindow = new BrowserWindow({
-    width: 900,
+    width: 1000,
     height: 670,
     show: false,
     transparent: true,
